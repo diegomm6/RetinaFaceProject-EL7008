@@ -27,7 +27,7 @@ cfg_mnet3 = {
     'variance': [0.1, 0.2],
     'clip': False,
     'loc_weight': 2.0,
-    'gpu_train': False,
+    'gpu_train': True,
     'batch_size': 32,
     'ngpu': 1,
     'epoch': 250,
@@ -38,6 +38,26 @@ cfg_mnet3 = {
     'return_layers': {},
     'in_channel': 32,
     'out_channel': 960
+}
+
+cfg_eff = {
+    'name': 'efficientnet',
+    'min_sizes': [[16, 32], [64, 128], [256, 512]],
+    'steps': [8, 16, 32],
+    'variance': [0.1, 0.2],
+    'clip': False,
+    'loc_weight': 2.0,
+    'gpu_train': True,
+    'batch_size': 32,
+    'ngpu': 1,
+    'epoch': 250,
+    'decay1': 190,
+    'decay2': 220,
+    'image_size': 640,
+    'pretrain': True,
+    'return_layers': {},
+    'in_channel': 32,
+    'out_channel': 352
 }
 
 cfg_re50 = {

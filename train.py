@@ -5,7 +5,7 @@ import torch.optim as optim
 import torch.backends.cudnn as cudnn
 import argparse
 import torch.utils.data as data
-from data import WiderFaceDetection, detection_collate, preproc, cfg_mnet, cfg_re50, cfg_mnet3
+from data import WiderFaceDetection, detection_collate, preproc, cfg_mnet, cfg_re50, cfg_mnet3, cfg_eff
 from layers.modules import MultiBoxLoss
 from layers.functions.prior_box import PriorBox
 import time
@@ -36,6 +36,8 @@ elif args.network == "resnet50":
     cfg = cfg_re50
 elif args.network == "mobilenet3":
     cfg = cfg_mnet3
+elif args.network == "efficientnet":
+    cfg = cfg_eff
 
 rgb_mean = (104, 117, 123) # bgr order
 num_classes = 2

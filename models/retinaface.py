@@ -74,14 +74,13 @@ class RetinaFace(nn.Module):
             backbone = timm.create_model('mobilenetv3_large_100', features_only=True, pretrained=cfg['pretrain'])
         elif cfg['name'] == 'efficientnet':
             import timm
-            backbone = timm.create_model('efficientnet_b2', pretrained=cfg['pretrain'])
+            backbone = timm.create_model('efficientnet_b2', features_only=True, pretrained=cfg['pretrain'])
 
         in_channels_stage2 = cfg['in_channel']
 
         if cfg['name'] == 'mobilenet3' or cfg['name'] == 'efficientnet':
             self.body = InterLayerGetter(backbone)
             in_channels_list = backbone.feature_info.channels()[-3:]
-
         else:
             self.body = _utils.IntermediateLayerGetter(backbone, cfg['return_layers'])
             in_channels_list = [
