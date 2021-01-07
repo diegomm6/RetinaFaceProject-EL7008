@@ -11,6 +11,7 @@ from layers.functions.prior_box import PriorBox
 import time
 import datetime
 import math
+from adamp import AdamP, SGDP
 from models.retinaface import RetinaFace
 
 parser = argparse.ArgumentParser(description='Retinaface Training')
@@ -84,6 +85,10 @@ if gpu_train:
 
 
 optimizer = optim.SGD(net.parameters(), lr=initial_lr, momentum=momentum, weight_decay=weight_decay)
+# optimizer = SGDP(net.parameters(), lr=initial_lr, weight_decay=weight_decay, momentum=momentum, nesterov=True)
+# optimizer = AdamP(net.parameters(), lr=initial_lr, betas=(0.9, 0.999), weight_decay=weight_decay)
+# scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, 200)
+
 criterion = MultiBoxLoss(num_classes, 0.35, True, 0, True, 7, 0.35, False)
 
 priorbox = PriorBox(cfg, image_size=(img_dim, img_dim))
