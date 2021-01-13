@@ -13,28 +13,36 @@ Se entrenaron un total de 4 modelos, haciendo uso de una GPU Nvidia v100 con 32g
 El primer modelo utiliza la red mobilenet v3 como backbone y el optimizador Adam, tamaño de batch 32 y tamaño de imagen 640. Entrenado durante 170 épocas, aproximadamente 22 horas y 30 minutos, arrojando los siguientes resultados de accuracy de validación: 
 
 Easy   Val AP: 0.9245397516986055
+
 Medium Val AP: 0.9076881989570095
+
 Hard   Val AP: 0.7926642019968118
 
 
 El segundo modelo utiliza la red efficientnet b2 como backbone y el optimizador SGD, tamaño de batch 16 y tamaño de imagen 640. Entrenado durante 85 épocas, aproximadamente 10 horas y 30 minutos, arrojando los siguientes resultados de accuracy de validación:
 
 Easy   Val AP: 0.9437935893828439
+
 Medium Val AP: 0.9348270699232748
+
 Hard   Val AP: 0.8444066746098529
 
 
 El tercer modelo utiliza la red efficientnet b2 como backbone y el optimizador SGDP, tamaño de batch 16 y tamaño de imagen 640. Entrenado durante 85 épocas, aproximadamente 12 horas, arrojando los siguientes resultados de accuracy de validación:
 
 Easy   Val AP: 0.9445888135338089
+
 Medium Val AP: 0.9294933979270533
+
 Hard   Val AP: 0.8403415349749046
 
 
 El cuarto modelo utiliza la red efficientnet b2 como backbone y el optimizador AdamP, tamaño de batch 16 y tamaño de imagen 640. Entrenado durante 85 épocas, aproximadamente 13 horas y 30 minutos, arrojando los siguientes resultados de accuracy de validación:
 
 Easy   Val AP: 0.9304405511758048
+
 Medium Val AP: 0.918498835619137
+
 Hard   Val AP: 0.8383977864746961
 
 
