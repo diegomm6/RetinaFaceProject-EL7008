@@ -1,3 +1,53 @@
+# RetinaFaceProject-EL7008
+
+Este repositorio corresponde a un clon del repositorio original de RetinaFace: https://github.com/biubug6/Pytorch_Retinaface.
+
+En este se realizaron modificaciones con el fin de adaptar el código para utilizar distintos modelos de redes neuronales como backbone para el algoritmo de detección de rostros de RetinaFace, usando además diversos algoritmos de optimización. El dataset utilizado es el WiderFace, disponible en http://shuoyang1213.me/WIDERFACE/index.html.
+
+Las nuevas redes agregadas corresponde a la MobileNet v3 y la EfficientNet b2, ambas implementadas en la librería timm del repositorio https://github.com/rwightman/pytorch-image-models.
+
+Los algoritmos de optimización añadidos son el SGDP y AdamP, modificaciones de los clásicos algoritmos SGD y Adam, implementados en la librería adamp del repositorio https://github.com/clovaai/AdamP.
+
+Se entrenaron un total de 4 modelos, haciendo uso de una GPU Nvidia v100 con 32gb de memoria, la cual es uno de los 8 módulos disponibles que ofrece el supercomputador Nvidia DGX1.
+
+El primer modelo utiliza la red mobilenet v3 como backbone y el optimizador Adam, tamaño de batch 32 y tamaño de imagen 640. Entrenado durante 170 épocas, aproximadamente 22 horas y 30 minutos, arrojando los siguientes resultados de accuracy de validación: 
+
+Easy   Val AP: 0.9245397516986055
+
+Medium Val AP: 0.9076881989570095
+
+Hard   Val AP: 0.7926642019968118
+
+
+El segundo modelo utiliza la red efficientnet b2 como backbone y el optimizador SGD, tamaño de batch 16 y tamaño de imagen 640. Entrenado durante 85 épocas, aproximadamente 10 horas y 30 minutos, arrojando los siguientes resultados de accuracy de validación:
+
+Easy   Val AP: 0.9437935893828439
+
+Medium Val AP: 0.9348270699232748
+
+Hard   Val AP: 0.8444066746098529
+
+
+El tercer modelo utiliza la red efficientnet b2 como backbone y el optimizador SGDP, tamaño de batch 16 y tamaño de imagen 640. Entrenado durante 85 épocas, aproximadamente 12 horas, arrojando los siguientes resultados de accuracy de validación:
+
+Easy   Val AP: 0.9445888135338089
+
+Medium Val AP: 0.9294933979270533
+
+Hard   Val AP: 0.8403415349749046
+
+
+El cuarto modelo utiliza la red efficientnet b2 como backbone y el optimizador AdamP, tamaño de batch 16 y tamaño de imagen 640. Entrenado durante 85 épocas, aproximadamente 13 horas y 30 minutos, arrojando los siguientes resultados de accuracy de validación:
+
+Easy   Val AP: 0.9304405511758048
+
+Medium Val AP: 0.918498835619137
+
+Hard   Val AP: 0.8383977864746961
+
+
+
+
 # RetinaFace in PyTorch
 
 A [PyTorch](https://pytorch.org/) implementation of [RetinaFace: Single-stage Dense Face Localisation in the Wild](https://arxiv.org/abs/1905.00641). Model size only 1.7M, when Retinaface use mobilenet0.25 as backbone net. We also provide resnet50 as backbone net to get better result. The official code in Mxnet can be found [here](https://github.com/deepinsight/insightface/tree/master/RetinaFace).
@@ -127,4 +177,3 @@ author={Deng, Jiankang and Guo, Jia and Yuxiang, Zhou and Jinke Yu and Irene Kot
 booktitle={arxiv},
 year={2019}
 ```
-# RetinaFaceProject-EL7008
