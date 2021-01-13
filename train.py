@@ -83,6 +83,7 @@ if gpu_train:
 
     cudnn.benchmark = True
 
+# aqui se debe seleccionar el optimizador deseado
 
 # optimizer = optim.SGD(net.parameters(), lr=initial_lr, momentum=momentum, weight_decay=weight_decay)
 optimizer = optim.Adam(net.parameters(), lr=initial_lr, betas=(0.9, 0.999), weight_decay=weight_decay)

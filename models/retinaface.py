@@ -78,6 +78,12 @@ class RetinaFace(nn.Module):
 
         in_channels_stage2 = cfg['in_channel']
 
+        # en este punto se modifico para el caso de las redes agregadas,
+        # el atriuto self.body se mantiene como OrderedDict a traves de
+        # la clase InterLayerGetter, construida de manera similar
+        # al IntermediateLayerGetter de _utils torch, rescatando ademas
+        # las dimensiones de las 3 ultimas etapas del backbone
+
         if cfg['name'] == 'mobilenet3' or cfg['name'] == 'efficientnet':
             self.body = InterLayerGetter(backbone)
             in_channels_list = backbone.feature_info.channels()[-3:]
